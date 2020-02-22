@@ -1755,7 +1755,43 @@ class Astronomy extends IPSModule
         $this->SendDebug('Astronomy:', 'Moon elciptic latitude ' . $MoonLat, 0);
         if($this->ReadPropertyBoolean('moonstarsign') == true)
         {
-            $this->SetValue('moonstarsign', floor($MoonLong/30)+1);
+            //$this->SetValue('moonstarsign', floor($MoonLong/30)+1);
+            if( $MoonLong <= 29.7 || $MoonLong > 351.7) {
+				$this->SetValue('moonstarsign', 12);
+			}
+			elseif( $MoonLong <= 53.7) {
+				$this->SetValue('moonstarsign', 1);
+			}
+			elseif( $MoonLong <= 89.7) {
+				$this->SetValue('moonstarsign', 2);
+			}
+			elseif( $MoonLong <= 117.8) {
+				$this->SetValue('moonstarsign', 3);
+			}
+			elseif( $MoonLong <= 138.9) {
+				$this->SetValue('moonstarsign', 4);
+			}
+			elseif( $MoonLong <= 174.2) {
+				$this->SetValue('moonstarsign', 5);
+			}
+			elseif( $MoonLong <= 220) {
+				$this->SetValue('moonstarsign', 6);
+			}
+			elseif( $MoonLong <= 238.1) {
+				$this->SetValue('moonstarsign', 7);
+			}
+			elseif( $MoonLong <= 268.6) {
+				$this->SetValue('moonstarsign', 8);
+			}
+			elseif( $MoonLong <= 298) {
+				$this->SetValue('moonstarsign', 9);
+			}
+			elseif( $MoonLong <= 326.7) {
+				$this->SetValue('moonstarsign', 10);
+			}
+			elseif( $MoonLong <= 351.7) {
+				$this->SetValue('moonstarsign', 11);
+			}
         }
         $Nutation = $this->NutatLong($GD, $GM, $GY); //nutation in longitude (degrees)
         $this->SendDebug('Astronomy:', 'nutation in longitude ' . $Nutation, 0);
